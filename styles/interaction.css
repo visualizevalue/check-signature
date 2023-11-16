@@ -1,0 +1,17 @@
+:--interactive {
+  border-radius: var(--size-2);
+  text-transform: uppercase;
+
+  &:--highlight {
+    box-shadow: var(--border-shadow-lg);
+  }
+
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 0.1em var(--primary);
+  }
+}
+
+textarea {
+  resize: none;
+}

@@ -1,0 +1,15 @@
+:root {
+  --primary: #8137C7;
+
+  --color-1: #379AF8;
+  --color-2: #EE1E77;
+  --color-3: #16F300;
+  --color-4: #EEB000;
+  --color-5: #356DF9;
+  --color-6: #EE6A00;
+
+  --color-said: var(--color-1);
+  --color-made: var(--color-2);
+  --color-approve: var(--color-3);
+  --color-disapprove: var(--color-4);
+}

@@ -1,5 +1,11 @@
 <template>
-  <Input />
+  <Input>
+    <slot />
+
+    <template #after>
+      <slot name="after" />
+    </template>
+  </Input>
 </template>
 
 <script setup>
