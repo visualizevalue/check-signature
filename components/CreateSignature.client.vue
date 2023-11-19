@@ -22,7 +22,14 @@
       <Input placeholder="JCKBTCHR.ETH" />
     </template>
 
-    <Button @click="sign"><Icon type="feather" /> <span>Sign</span></Button>
+    <Button
+      @click="sign"
+      :disabled="signing"
+    >
+      <Icon type="feather" />
+      <span v-if="signing">Signing</span>
+      <span v-else>Sign</span>
+    </Button>
   </section>
 </template>
 
@@ -30,12 +37,14 @@
 import { OPTIONS, getType, isURI,  signNotabilityCheck } from '~/helpers/sign'
 import { useAccount } from 'vveb3/lib/utils/use-wagmi'
 
+const router = useRouter()
+const { address } = useAccount()
+
 const action = ref(OPTIONS.SAID)
 const object = ref('')
 const type = computed(() => getType(object.value))
 const peers = ref([])
-
-const { address } = useAccount()
+const subjects = computed(() => [address.value, ...peers.value])
 
 const extended = ref(false)
 const helpTxt = computed(() => ! object.value
@@ -50,13 +59,22 @@ const sign = async () => {
   try {
     signing.value = true
 
-    const signature = await signNotabilityCheck({
-      action: action.value,
-      content: object.value,
-      peers: [address.value],
-    })
+    const signature = await signNotabilityCheck(
+      subjects.value,
+      action.value,
+      object.value,
+    )
 
-    console.log(signature)
+    router.push({
+      path: '/verify',
+      query: {
+        subjects: subjects.value.join(','),
+        action: action.value,
+        object: object.value,
+        signer: address.value,
+        signature,
+      },
+    })
   } catch (e) {
     // ...
     console.log(e)

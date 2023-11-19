@@ -1,4 +1,4 @@
-import { signTypedData } from '@wagmi/core'
+import { signTypedData, type SignTypedDataArgs } from '@wagmi/core'
 import { isValidURI } from 'vveb3/lib/helpers/uri'
 
 export const OPTIONS = {
@@ -15,53 +15,32 @@ export const TYPES = {
 export const getType = (content: string) => isValidURI(content.trim()) ? TYPES.URI : TYPES.TXT
 export const isURI = (type: keyof typeof TYPES) => type === TYPES.URI
 
-export const signNotabilityCheck = async (
-  data: { action: string, content: string, peers: string[] } = { action: OPTIONS.SAID, content: '', peers: [] }
-) => {
-  const hasPeers = data.peers.length
-
-  const version = hasPeers ? 'peers@1' : 'single@1'
+export const notabilityCheck712Definition = (subject: string[], action: string, object: string): SignTypedDataArgs => {
   const name = 'Notability Check'
   const domain = {
     name,
-    version,
+    version: '1',
   }
 
   const types = {
-    'Object': [
-      { name: 'content', type: 'string' },
-      { name: 'type', type: 'string' },
-    ],
     [name]: [
-      { name: 'action', type: 'string' },
-      { name: 'object', type: 'Object' },
+      { name: 'Subject', type: 'address[]' },
+      { name: 'Action', type: 'string' },
+      { name: 'Object', type: 'string' },
     ],
   }
 
-  const message: {
-    action: string,
-    object: {
-      content: string,
-      type: string,
-    },
-    peers?: string[],
-  } = {
-    action: data.action,
-    object: {
-      content: data.content,
-      type: getType(data.content),
-    },
-  }
-
-  if (hasPeers) {
-    types[name].push({ name: 'peers', type: 'address[]' })
-    message.peers = data.peers
-  }
-
-  return await signTypedData({
+  return {
     primaryType: name,
-    message,
+    message: {
+      Subject: subject,
+      Action: action,
+      Object: object,
+    },
     domain,
     types,
-  })
+  }
 }
+
+export const signNotabilityCheck = async (subject: string[], action: string, object: string) =>
+  await signTypedData(notabilityCheck712Definition(subject, action, object))

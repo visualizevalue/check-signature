@@ -1,6 +1,11 @@
 :root {
   --primary: #8137C7;
 
+  --green-rgb: 22, 243, 0;
+  --green: #16F300;
+  --red-rgb: 238, 45, 43;
+  --red: #EE2D2B;
+
   --color-1: #379AF8;
   --color-2: #EE1E77;
   --color-3: #16F300;
