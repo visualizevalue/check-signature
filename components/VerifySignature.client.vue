@@ -124,7 +124,8 @@ verify()
 .verify {
   display: flex;
   flex-direction: column;
-  gap: var(--size-4);
+  padding: var(--padding-lg) 0;
+  gap: var(--padding-lg);
 }
 
 .statement,
@@ -137,7 +138,7 @@ verify()
   overflow: hidden;
 
   > * {
-    padding: var(--size-4);
+    padding: var(--padding);
   }
 }
 
@@ -148,7 +149,7 @@ verify()
     justify-content: space-between;
     align-items: center;
     gap: var(--size-5);
-    padding: var(--size-2) var(--size-4);
+    padding: var(--size-2) var(--padding);
 
     :deep(.avatar) {
       margin-top: 0.2em;
@@ -165,7 +166,7 @@ verify()
     align-items: baseline;
     gap: var(--size-3);
     font-size: var(--font-lg);
-    padding-top: var(--size-4);
+    padding-top: var(--padding);
     border-top: var(--border-dark);
     overflow: auto;
     -webkit-overflow-scrolling: auto;
@@ -189,12 +190,11 @@ verify()
 
 .proof {
   display: grid;
-  margin: var(--size-6) 0;
 
   > * {
     display: flex;
     flex-direction: column;
-    gap: var(--size-4);
+    gap: var(--padding);
   }
 
   .input {

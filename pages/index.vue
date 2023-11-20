@@ -20,7 +20,6 @@
 <style lang="postcss" scoped>
   .index {
     display: grid;
-    border-top: var(--border-dark);
 
     > * {
       width: 100%;

@@ -1,6 +1,19 @@
 .prose {
   --margin-lg: var(--size-7);
 
+  > *:has(.icon) {
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+
+    .icon {
+      width: 1em;
+      height: 1em;
+      position: relative;
+      bottom: 0.075em;
+    }
+  }
+
   /* SECTION SPACE */
   .video-embed,
   > aside,
@@ -103,7 +116,7 @@
   img {
     margin: 0 0 0.5em 0;
     border: var(--border);
-    border-radius: var(--border-radius);
+    border-radius: var(--size-2);
   }
 
   /* LISTS */
@@ -168,7 +181,7 @@
     padding: var(--size-1) var(--size-2);
     background-color: var(--gray-z-1);
     border: var(--border);
-    border-radius: var(--border-radius);
+    border-radius: var(--size-2);
     font-size: 0.8em;
   }
   pre.shiki {
@@ -181,6 +194,9 @@
       padding: 0;
       font-size: 1em;
     }
+  }
+  p > code {
+    white-space: nowrap;
   }
 
   /* VIDEO */
@@ -199,5 +215,31 @@
 
   &.centered {
     text-align: center;
+  }
+}
+
+
+.prose.small {
+  h1, p, ol {
+    margin: 0.75rem 0;
+  }
+
+  h1 {
+    font-size: var(--font-base);
+  }
+
+  p,
+  ol,
+  li {
+    font-size: var(--font-sm);
+    line-height: 1.25em;
+  }
+
+  li {
+    color: var(--gray-z-6);
+
+    .list-head {
+      color: var(--color);
+    }
   }
 }

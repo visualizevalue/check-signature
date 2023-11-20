@@ -1,10 +1,12 @@
 <template>
   <nav>
-    <NuxtLink to="/">
-      <span>Signature</span>
-      <Icon type="check" class="check" title="check" />
-    </NuxtLink>
-    <Connect />
+    <div class="full-width">
+      <NuxtLink to="/">
+        <span>Signature</span>
+        <Icon type="check" class="check" title="check" />
+      </NuxtLink>
+      <Connect />
+    </div>
   </nav>
 </template>
 
@@ -12,8 +14,12 @@
 </script>
 
 <style lang="postcss" scoped>
-nav,
-nav > a:first-child {
+nav {
+  border-bottom: var(--border-dark);
+}
+
+.full-width,
+.full-width > a:first-child {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +37,7 @@ nav > a:first-child {
   }
 }
 
-nav {
+.full-width {
   padding: var(--padding);
   width: 100%;
   max-width: var(--content-width);

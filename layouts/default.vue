@@ -24,5 +24,28 @@ main {
     height: 100%;
     flex-grow: 1;
   }
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 10vw;
+    height: 100vh;
+    width: calc((100vw - var(--content-width)) / 2);
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    z-index: 999;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(to right, var(--opaque-black), var(--transparent-black));
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(to left, var(--opaque-black), var(--transparent-black));
+  }
 }
 </style>
