@@ -1,8 +1,8 @@
 <template>
   <nav>
     <NuxtLink to="/">
-      <Icon type="check" class="check" />
-      <span>Signature <span class="hidden-sm">Check</span></span>
+      <span>Signature</span>
+      <Icon type="check" class="check" title="check" />
     </NuxtLink>
     <Connect />
   </nav>
@@ -19,18 +19,22 @@ nav > a:first-child {
   align-items: center;
   gap: var(--size-3);
 
-  .check {
+  span {
     position: relative;
+    top: 0.075rem;
+  }
+
+  .check {
     color: var(--gray-z-3 );
     flex-shrink: 0;
-    bottom: 0.1em;
+    flex-grow: 0;
   }
 }
 
 nav {
-  padding: var(--size-6) var(--size-7) var(--size-7);
+  padding: var(--padding);
   width: 100%;
-  /* max-width: var(--content-width);
-  margin: 0 auto; */
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
 </style>

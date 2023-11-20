@@ -24,7 +24,7 @@
 
     <Button
       @click="sign"
-      :disabled="signing"
+      :disabled="signing || !object"
     >
       <Icon type="feather" />
       <span v-if="signing">Signing</span>
@@ -38,7 +38,7 @@ import { OPTIONS, getType, isURI,  signNotabilityCheck } from '~/helpers/sign'
 import { useAccount } from 'vveb3/lib/utils/use-wagmi'
 
 const router = useRouter()
-const { address } = useAccount()
+const { address, isConnected } = useAccount()
 
 const action = ref(OPTIONS.SAID)
 const object = ref('')
@@ -56,6 +56,10 @@ const helpTxt = computed(() => ! object.value
 
 const signing = ref(false)
 const sign = async () => {
+  if (! isConnected.value) {
+    return document.getElementById('main-connect').click()
+  }
+
   try {
     signing.value = true
 
@@ -92,17 +96,19 @@ section {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--size-5);
   padding: var(--size-9) 0;
 
   * {
     text-transform: uppercase;
+    flex: 0 0 auto;
   }
 
   .object {
     width: auto;
     position: relative;
+    flex: 3 0 auto;
 
     small {
       position: absolute;
@@ -126,11 +132,14 @@ section {
         }
       }
     }
-
   }
 
   .check {
     color: var(--primary);
+  }
+
+  > .button {
+    /* justify-self: flex-end; */
   }
 }
 

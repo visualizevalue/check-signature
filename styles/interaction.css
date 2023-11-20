@@ -1,5 +1,6 @@
 :--interactive {
   border-radius: var(--size-2);
+  border: var(--border-dark);
   text-transform: uppercase;
 
   &:--highlight {
@@ -10,6 +11,10 @@
   &:active {
     box-shadow: 0 0 0 0.1em var(--primary);
   }
+}
+
+:--button {
+  border: var(--border-dark);
 }
 
 textarea {

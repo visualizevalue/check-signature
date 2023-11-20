@@ -17,4 +17,7 @@
   --color-made: var(--color-2);
   --color-approve: var(--color-3);
   --color-disapprove: var(--color-4);
+
+  --padding: var(--size-4);
+  --padding-lg: var(--size-7);
 }
