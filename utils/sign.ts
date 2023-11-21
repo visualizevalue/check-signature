@@ -1,5 +1,5 @@
 import { signTypedData, type SignTypedDataArgs } from '@wagmi/core'
-import { isValidURI } from 'vveb3/lib/helpers/uri'
+import isValidURI from '~/utils/is-valid-uri'
 
 export const OPTIONS = {
   SAID: 'said',

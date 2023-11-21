@@ -24,7 +24,6 @@
     "feather-icons": "4",
     "postcss-preset-env": "^9.1.4",
     "viem": "^1.11.0",
-    "vue-feather": "2",
-    "vveb3": "git+https://github.com/visualizevalue-dev/vveb3"
+    "vue-feather": "2"
   }
 }

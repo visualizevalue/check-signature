@@ -80,9 +80,6 @@
 
 <script setup>
 import { verifyTypedData } from 'viem'
-import Account from 'vveb3/lib/components/Account.vue'
-import Address from 'vveb3/lib/components/Address.vue'
-import { notabilityCheck712Definition } from '~/helpers/sign'
 
 const {
   signature,

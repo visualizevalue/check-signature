@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { getType } from '~/helpers/sign'
+import { getType } from '~/utils/sign'
 
 const { object } = defineProps({ object: String })
 

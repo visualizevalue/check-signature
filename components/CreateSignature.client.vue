@@ -34,8 +34,7 @@
 </template>
 
 <script setup>
-import { OPTIONS, getType, isURI,  signNotabilityCheck } from '~/helpers/sign'
-import { useAccount } from 'vveb3/lib/utils/use-wagmi'
+import { OPTIONS, getType, isURI, signNotabilityCheck } from '~/utils/sign'
 
 const router = useRouter()
 const { address, isConnected } = useAccount()

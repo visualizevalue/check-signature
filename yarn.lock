@@ -7530,7 +7530,7 @@ vue-router@^4.2.5:
   dependencies:
     "@vue/devtools-api" "^6.5.0"
 
-vue@^3.3.4, vue@^3.3.8:
+vue@^3.3.8:
   version "3.3.8"
   resolved "https://registry.npmjs.org/vue/-/vue-3.3.8.tgz"
   integrity sha512-5VSX/3DabBikOXMsxzlW8JyfeLKlG9mzqnWgLQLty88vdZL7ZJgrdgBOmrArwxiLtmS+lNNpPcBYqrhE6TQW5w==
@@ -7540,12 +7540,6 @@ vue@^3.3.4, vue@^3.3.8:
     "@vue/runtime-dom" "3.3.8"
     "@vue/server-renderer" "3.3.8"
     "@vue/shared" "3.3.8"
-
-"vveb3@git+https://github.com/visualizevalue-dev/vveb3":
-  version "0.0.0"
-  resolved "git+https://github.com/visualizevalue-dev/vveb3#b04f04036c190f70875867c52043c798c5566603"
-  dependencies:
-    vue "^3.3.4"
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
