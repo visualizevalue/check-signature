@@ -9,7 +9,7 @@
 <style lang="postcss" scoped>
 main {
   width: 100%;
-  min-height: var(--100vh);
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 

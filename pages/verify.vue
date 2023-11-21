@@ -8,7 +8,9 @@
       :object="object"
     />
 
-    <AboutSignatureVerificationPreview />
+    <ClientOnly>
+      <AboutSignatureVerificationPreview />
+    </ClientOnly>
   </div>
 </template>
 
