@@ -135,6 +135,8 @@ section {
 
   .check {
     color: var(--primary);
+    width: var(--size-6);
+    height: var(--size-6);
   }
 
   > .button {

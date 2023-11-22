@@ -120,7 +120,7 @@
   }
 
   /* LISTS */
-  ol { list-style: auto; }
+  ol { list-style: decimal; }
   ul {
     list-style: none;
 
