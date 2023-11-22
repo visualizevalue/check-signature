@@ -1,4 +1,0 @@
-@custom-selector :--highlight :hover, :active, :focus, .active;
-
-@custom-selector :--button .button;
-@custom-selector :--interactive input, select, textarea, .button;

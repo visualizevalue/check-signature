@@ -60,8 +60,6 @@ export default defineNuxtPlugin(() => {
   // @ts-ignore
   window.wagmi = wagmi
 
-  console.log('wagmi')
-
   return {
     provide: {
       wagmi

@@ -1,9 +1,7 @@
-import { resolve } from 'path'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: [
-    './vveb3',
+    'github:visualizevalue-dev/vveb3-layer',
   ],
   runtimeConfig: {
     public: {
