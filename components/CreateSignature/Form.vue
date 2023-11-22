@@ -22,28 +22,21 @@
       <Input placeholder="JCKBTCHR.ETH" />
     </template>
 
-    <Button
-      @click="sign"
-      :disabled="signing || !object"
-    >
-      <Icon type="feather" />
-      <span v-if="signing">Signing</span>
-      <span v-else>Sign</span>
-    </Button>
+    <CreateSignatureButton
+      :peers="peers"
+      :action="action"
+      :object="object"
+    />
   </section>
 </template>
 
 <script setup>
-import { OPTIONS, getType, isURI, signNotabilityCheck } from '~/utils/sign'
-
-const router = useRouter()
-const { address, isConnected } = useAccount()
+import { OPTIONS, getType, isURI } from '~/utils/sign'
 
 const action = ref(OPTIONS.SAID)
 const object = ref('')
 const type = computed(() => getType(object.value))
 const peers = ref([])
-const subjects = computed(() => [address.value, ...peers.value])
 
 const extended = ref(false)
 const helpTxt = computed(() => ! object.value
@@ -52,39 +45,6 @@ const helpTxt = computed(() => ! object.value
     ? `${object.value.split(':')[0]} link`
     : `plain text`
 )
-
-const signing = ref(false)
-const sign = async () => {
-  if (! isConnected.value) {
-    return document.getElementById('main-connect').click()
-  }
-
-  try {
-    signing.value = true
-
-    const signature = await signNotabilityCheck(
-      subjects.value,
-      action.value,
-      object.value,
-    )
-
-    router.push({
-      path: '/verify',
-      query: {
-        subjects: subjects.value.join(','),
-        action: action.value,
-        object: object.value,
-        signer: address.value,
-        signature,
-      },
-    })
-  } catch (e) {
-    // ...
-    console.log(e)
-  }
-
-  signing.value = false
-}
 </script>
 
 <style lang="postcss" scoped>

@@ -1,7 +1,7 @@
 <template>
   <div class="index full-height">
     <div class="content-width">
-      <CreateSignature />
+      <CreateSignatureForm />
     </div>
 
     <section>
