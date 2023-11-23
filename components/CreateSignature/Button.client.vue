@@ -18,6 +18,7 @@ const props = defineProps({
   object: String,
 })
 
+const config = useRuntimeConfig()
 const router = useRouter()
 
 const { address, isConnected } = useAccount()
@@ -41,14 +42,24 @@ const sign = async () => {
       object.value,
     )
 
+    const data = {
+      subjects: subjects.value,
+      action: action.value,
+      object: object.value,
+      signer: address.value,
+      signature,
+    }
+
+    await $fetch(`${config.public.api}/v1/signatures`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+
     router.push({
       path: '/verify',
       query: {
+        ...data,
         subjects: subjects.value.join(','),
-        action: action.value,
-        object: object.value,
-        signer: address.value,
-        signature,
       },
     })
   } catch (e) {

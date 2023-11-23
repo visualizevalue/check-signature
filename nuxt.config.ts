@@ -3,6 +3,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
+      api: '',
       rpc: 'http://127.0.0.1:8545',
       alchemy: '',
       walletConnectProjectId: '',
