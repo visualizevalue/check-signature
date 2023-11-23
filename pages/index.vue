@@ -6,7 +6,7 @@
 
     <section>
       <div class="content-width">
-        <!-- <div class="timeline"></div> -->
+        <Timeline />
 
         <AboutPreview />
       </div>
@@ -45,7 +45,14 @@
         height: 100%;
 
         > * {
-          padding: var(--padding-lg) var(--padding);
+          padding: var(--padding-lg);
+
+          &:first-child {
+            padding-left: var(--padding);
+          }
+          &:last-child {
+            padding-right: var(--padding);
+          }
         }
 
         @media (--md) {
@@ -53,10 +60,6 @@
         }
       }
     }
-  }
-
-  .about {
-    grid-column: 1 / -1;
   }
 
   .timeline {

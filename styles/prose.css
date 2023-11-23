@@ -218,7 +218,6 @@
   }
 }
 
-
 .prose.small {
   h1, p, ol {
     margin: 0.75rem 0;
@@ -241,5 +240,9 @@
     .list-head {
       color: var(--color);
     }
+  }
+
+  > *:first-child {
+    margin-top: 0;
   }
 }
