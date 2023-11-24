@@ -23,7 +23,7 @@ useIntervalFn(() => refresh(), 60_000)
 </script>
 
 <style lang="postcss" scoped>
-section {
+.timeline {
   display: flex;
   flex-direction: column;
   gap: var(--size-4);
@@ -32,16 +32,16 @@ section {
   position: relative;
   height: 100%;
 
+  > article {
+    flex-shrink: 0;
+  }
+
   > a {
-    position: absolute;
+    position: relative;
     z-index: 10;
-    bottom: 0;
-    padding: 8rem 1rem 1rem;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: linear-gradient(to bottom, var(--transparent-black), var(--black));
+    padding: var(--size-2) var(--size-4);
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     transition: all var(--speed);
@@ -50,6 +50,18 @@ section {
     &:--highlight {
       color: var(--color);
     }
+  }
+
+  &:after {
+    content: '';
+    z-index: 5;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--transparent-black), var(--black));
   }
 }
 </style>
