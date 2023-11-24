@@ -16,8 +16,9 @@ import { useIntervalFn } from '@vueuse/core'
 
 const config = useRuntimeConfig()
 
-const { data: signatures, refresh } = await useFetch(`${config.public.api}/v1/signatures?limit=9`)
+const { data: signatures, execute, refresh } = await useLazyFetch(`${config.public.api}/v1/signatures?limit=9`)
 
+onMounted(() => execute())
 useIntervalFn(() => refresh(), 60_000)
 </script>
 
