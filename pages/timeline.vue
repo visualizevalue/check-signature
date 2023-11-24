@@ -38,7 +38,7 @@ aside {
 }
 
 .timeline {
-  padding: var(--size-9) 0;
+  padding: var(--size-9) 0 calc(var(--size-9)*2);
   display: grid;
   gap: var(--padding);
 }

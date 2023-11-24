@@ -16,7 +16,7 @@
   >
     <div v-if="requesting" class="centered">
       <Loader />
-      <p>Requesting your signature...</p>
+      <p>Requesting your signature... <br>Check your wallet for a signature request.</p>
     </div>
     <div v-else-if="signing" class="centered">
       <Loader />
@@ -155,10 +155,15 @@ const publish = async () => {
   justify-content: center;
   align-items: center;
   gap: var(--padding);
+  text-align: center;
 
   .icon {
     width: var(--size-8);
     height: var(--size-8);
+  }
+
+  p {
+    color: var(--gray-z-7);
   }
 }
 

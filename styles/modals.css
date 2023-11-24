@@ -5,6 +5,11 @@ dialog {
   > header:first-child {
     border-bottom: var(--border-dark);
 
+    h1 {
+      font-size: var(--font-md);
+      text-align: center
+    }
+
     + section {
       padding: var(--padding);
     }
