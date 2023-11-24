@@ -4,7 +4,7 @@
     :to="isIPFS ? gatewayURI : object"
     target="_blank"
     class="uri"
-    :class="[`type-${protocol}`]"
+    :class="[`type-${protocol}`, minimal && 'minimal']"
   >
     <span class="protocol">{{ protocol }}://</span>
     <span class="domain" v-if="uri.host">{{ uri.host }}</span>
@@ -18,7 +18,12 @@
 <script setup>
 import { getType } from '~/utils/sign'
 
-const { object } = defineProps({ object: String })
+const {
+  object
+} = defineProps({
+  object: String,
+  minimal: Boolean,
+})
 
 const type = computed(() => getType(object))
 
@@ -39,17 +44,38 @@ const gatewayURI = computed(() => `${gateway.value}/${protocol.value}/${path.val
 
 <style lang="postcss" scoped>
 .uri:not(.unstyled) {
+  --background: var(--gray-z-2);
+
   display: inline-flex;
-  padding: var(--size-2);
-  background-color: var(--gray-z-2);
+  padding: 0.1em 0.5em;
+  background-color: var(--background);
   border-radius: var(--size-2);
   transition: all var(--speed);
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    width: 1em;
+    background: linear-gradient(to left, var(--background), transparent);
+    border-top-right-radius: var(--size-2);
+    border-bottom-right-radius: var(--size-2);
+  }
 
   .protocol,
   .path,
   .search,
   .hash {
     color: var(--gray-z-6);
+  }
+
+  .path,
+  .search,
+  .hash {
+    flex-shrink: 1;
   }
 
   &.type-ipfs,
@@ -61,6 +87,15 @@ const gatewayURI = computed(() => `${gateway.value}/${protocol.value}/${path.val
 
   &:--highlight {
     background-color: var(--gray-z-4);
+  }
+
+  &.minimal {
+    &.type-http,
+    &.type-https {
+      .protocol {
+        display: none;
+      }
+    }
   }
 }
 </style>

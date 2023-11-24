@@ -103,17 +103,4 @@ section {
     /* justify-self: flex-end; */
   }
 }
-
-.theme-said {
-  --primary: var(--color-said);
-}
-.theme-made {
-  --primary: var(--color-made);
-}
-.theme-approve {
-  --primary: var(--color-approve);
-}
-.theme-disapprove {
-  --primary: var(--color-disapprove);
-}
 </style>

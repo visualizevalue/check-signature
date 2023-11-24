@@ -6,7 +6,7 @@
 
     <section>
       <div class="content-width">
-        <Timeline />
+        <TimelinePreview />
 
         <AboutPreview />
       </div>
@@ -43,31 +43,37 @@
       > .content-width {
         display: grid;
         height: 100%;
+        padding: 0;
 
         > * {
-          padding: var(--padding-lg);
-
-          &:first-child {
-            padding-left: var(--padding);
-          }
-          &:last-child {
-            padding-right: var(--padding);
-          }
+          padding: var(--padding-lg) var(--padding);
         }
 
         @media (--md) {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          padding: 0 var(--padding);
+
+          > * {
+            padding: var(--padding-lg);
+
+            &:first-child {
+              padding-left: 0;
+            }
+            &:last-child {
+              padding-right: 0;
+            }
+          }
         }
       }
     }
   }
 
-  .timeline {
+  .about {
     border-top: var(--border-dark);
 
     @media (--md) {
       border-top: 0;
-      border-right: var(--border-dark);
+      border-left: var(--border-dark);
     }
   }
 </style>

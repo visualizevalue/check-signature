@@ -25,7 +25,7 @@
 
         <span class="action">{{ action }}</span>
 
-        <span class="object"><Object :object="object" />"</span>
+        <span class="object"><SignatureObject :object="object" />"</span>
       </div>
     </section>
 
@@ -47,7 +47,7 @@
         </div>
         <div>
           <p class="label">Object</p>
-          <p><Object :object="object" class="unstyled" /></p>
+          <p><SignatureObject :object="object" class="unstyled" /></p>
         </div>
       </div>
       <div>

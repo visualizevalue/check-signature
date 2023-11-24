@@ -12,6 +12,7 @@ main {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   :deep(.content-width) {
     width: 100%;
@@ -23,6 +24,15 @@ main {
   :deep(.full-height) {
     height: 100%;
     flex-grow: 1;
+
+    &:after {
+      content: '';
+      position: fixed;
+      background: linear-gradient(to top, var(--opaque-black), var(--transparent-black));
+      bottom: 0;
+      width: 100vw;
+      height: min(10vh, 10vw);
+    }
   }
 
   &:before,

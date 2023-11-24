@@ -1,0 +1,40 @@
+<template>
+  <div>
+    <aside>
+      <div class="content-width">
+        <CreateSignatureForm />
+      </div>
+    </aside>
+
+    <div class="content-width">
+      <PaginatedContent :url="url"
+        v-slot="{ items }"
+        class="timeline"
+      >
+        <SignatureListItem
+          v-for="signature in items"
+          :key="signature.cid"
+          :signature="signature"
+        />
+      </PaginatedContent>
+    </div>
+  </div>
+</template>
+
+<script setup>
+const config = useRuntimeConfig()
+
+const url = `${config.public.api}/v1/signatures`
+</script>
+
+<style lang="postcss" scoped>
+aside {
+  border-bottom: var(--border-dark);
+}
+
+.timeline {
+  padding: var(--size-9) 0;
+  display: grid;
+  gap: var(--padding);
+}
+</style>
