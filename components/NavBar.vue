@@ -5,12 +5,13 @@
         <span>Signature</span>
         <Icon type="check" class="check" title="check" />
       </NuxtLink>
-      <Connect />
+      <Connect :wallet-connect-project-id="config.public.walletConnectProjectId" :rpc="config.public.rpc" />
     </div>
   </nav>
 </template>
 
 <script setup>
+const config = useRuntimeConfig()
 </script>
 
 <style lang="postcss" scoped>
