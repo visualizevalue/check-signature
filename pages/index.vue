@@ -7,16 +7,18 @@
     </aside>
 
     <div class="content-width">
-      <PaginatedContent :url="url"
-        v-slot="{ items }"
-        class="timeline"
-      >
-        <SignatureListItem
-          v-for="signature in items"
-          :key="signature.cid"
-          :signature="signature"
-        />
-      </PaginatedContent>
+      <ClientOnly>
+        <PaginatedContent :url="url"
+          v-slot="{ items }"
+          class="timeline"
+        >
+          <SignatureListItem
+            v-for="signature in items"
+            :key="signature.cid"
+            :signature="signature"
+          />
+        </PaginatedContent>
+      </ClientOnly>
     </div>
   </div>
 </template>
