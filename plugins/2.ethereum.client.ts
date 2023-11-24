@@ -13,7 +13,7 @@ const setup = ({
   alchemyApiKey: string,
   walletConnectProjectId: string,
 }) => {
-  const { chains, publicClient, webSocketPublicClient } = configureChains(
+  const { chains, publicClient } = configureChains(
     [mainnet],
     [
       alchemyProvider({ apiKey: alchemyApiKey }),
@@ -21,7 +21,7 @@ const setup = ({
     ],
     {
       batch: { multicall: true },
-      pollingInterval: 10_000,
+      pollingInterval: 60_000,
     }
   )
 
@@ -38,13 +38,11 @@ const setup = ({
       }),
     ],
     publicClient,
-    webSocketPublicClient,
   })
 
   return {
     chains,
     publicClient,
-    webSocketPublicClient,
     wagmi
   }
 }
