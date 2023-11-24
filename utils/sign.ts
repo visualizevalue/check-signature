@@ -3,7 +3,9 @@ import isValidURI from '~/utils/is-valid-uri'
 
 export const OPTIONS = {
   SAID: 'said',
+  WROTE: 'wrote',
   MADE: 'made',
+  BOUGHT: 'bought',
   APPROVE: 'approve',
   DISAPPROVE: 'disapprove',
 }
