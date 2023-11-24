@@ -22,6 +22,10 @@
       <Loader />
       <p>Signing your statement...</p>
     </div>
+    <div v-else-if="publishing" class="centered">
+      <Loader />
+      <p>Publishing your signature...</p>
+    </div>
     <div v-else-if="signed">
       <div class="centered">
         <Icon type="check" />
@@ -33,7 +37,10 @@
     <template #footer v-if="signed">
       <footer>
         <Button class="secondary" :to="{ path: '/verify', query }">Keep private</Button>
-        <Button class="primary" @click="publish">Publish</Button>
+        <Button class="primary" @click="publish" :disabled="publishing">
+          <span v-if="publishing">Publishing...</span>
+          <span v-else>Publish</span>
+        </Button>
       </footer>
     </template>
   </Modal>
