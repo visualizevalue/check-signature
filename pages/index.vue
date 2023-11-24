@@ -15,6 +15,10 @@
 </template>
 
 <script setup>
+useMetaData({
+  title: 'Signature Check',
+  description: 'Create and verify statements created with Ethereum Accounts.',
+})
 </script>
 
 <style lang="postcss" scoped>

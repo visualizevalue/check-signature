@@ -25,6 +25,11 @@
 const config = useRuntimeConfig()
 
 const url = `${config.public.api}/v1/signatures`
+
+useMetaData({
+  title: 'Timeline | Signature Check',
+  description: 'Create and verify statements created with Ethereum Accounts.',
+})
 </script>
 
 <style lang="postcss" scoped>

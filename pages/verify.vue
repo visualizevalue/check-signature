@@ -22,6 +22,11 @@ const signer = computed(() => route.query.signer)
 const subjects = computed(() => route.query.subjects?.split(',') || [])
 const action = computed(() => route.query.action)
 const object = computed(() => route.query.object)
+
+useMetaData({
+  title: 'Check Signature',
+  description: 'Verify whether a signature is valid.',
+})
 </script>
 
 <style lang="postcss" scoped>
