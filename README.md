@@ -58,3 +58,7 @@ yarn dev
 ```
 
 This application is built with Nuxt. Check out the [Nuxt documentation](https://nuxt.com/docs/getting-started).
+
+### API
+
+The API is a separate repository, which you can find [here](https://github.com/visualizevalue-dev/check-signature-api)
