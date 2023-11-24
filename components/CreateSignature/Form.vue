@@ -49,8 +49,6 @@ const helpTxt = computed(() => ! object.value
 
 <style lang="postcss" scoped>
 section {
-  --primary: var(--primary);
-
   font-size: var(--font-lg);
   display: flex;
   flex-wrap: wrap;
@@ -97,10 +95,6 @@ section {
     color: var(--primary);
     width: var(--size-6);
     height: var(--size-6);
-  }
-
-  > .button {
-    /* justify-self: flex-end; */
   }
 }
 </style>
