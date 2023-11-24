@@ -4,7 +4,7 @@
     <Address :address="signature.signer" />
     <span>{{ signature.action }}</span>
     <SignatureObject :object="signature.object" minimal class="object" />
-    <TimeAgo :timestamp="signature.created_at" class="time" />
+    <TimeAgo v-if="signature.created_at" :timestamp="signature.created_at" class="time" />
     <NuxtLink :to="link" class="link"><span>View Signature</span></NuxtLink>
   </article>
 </template>

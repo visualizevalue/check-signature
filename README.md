@@ -1,75 +1,60 @@
-# Nuxt 3 Minimal Starter
+# Check Signature
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Private-public key cryptography allows you to sign arbitrary messages. Anyone can take the output of such a signature and verify its validity.
 
-## Setup
+By consistenly signing work, one can build a reputation-based, self-governed identity noone can take away.
 
-Make sure to install the dependencies:
+With this app, you can use your Ethereum Account to sign structured statements and share them in private or publicly.
 
-```bash
-# npm
-npm install
+1. **Private:** Create signatures directly in your browser and share the URL. Your data is not stored on our infrastructure.
+2. **Public:** Publish your signature to IPFS and our APIs to make them publicly available and indexable.
+3. **Onchain (soon):** Write your signature to the blockchain and create an immutable timestamp and historical proof of your message.
 
-# pnpm
-pnpm install
+## Signature Schema
 
-# yarn
-yarn install
+The signed statements use a typed message format, including one or many `Subjects`, an `Action`, and an `Object`.
+Subjects are Ethereum Accounts, Actions are structured verbs like `said` or `made`, and objects are any plain text content, or URIs to content on the internet.
 
-# bun
-bun install
+```ts
+const name = 'Notability Check'
+const domain = {
+  name,
+  version: '1',
+}
+
+const types = {
+  [name]: [
+    { name: 'Subject', type: 'address[]' },
+    { name: 'Action', type: 'string' },
+    { name: 'Object', type: 'string' },
+  ],
+}
+
+cnost schema = {
+  primaryType: name,
+  message: {
+    Subject: ['0xc8f8e2F59Dd95fF67c3d39109ecA2e2A017D4c8a'],
+    Action: 'said',
+    Object: 'this artwork may or may not be notable',
+  },
+  domain,
+  types,
+}
 ```
 
-## Development Server
+## Running the application
+
+### Setup
+
+- Install dependencies `yarn install`
+- Copy & Edit `.env.example` to `.env`
+
+### Dev Server
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
 yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This application is built with Nuxt. Check out the [Nuxt documentation](https://nuxt.com/docs/getting-started).

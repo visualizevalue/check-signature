@@ -1,0 +1,12 @@
+dialog {
+  border: var(--border-dark);
+  border-radius: var(--size-2);
+
+  > header:first-child {
+    border-bottom: var(--border-dark);
+
+    + section {
+      padding: var(--padding);
+    }
+  }
+}
