@@ -1,5 +1,5 @@
 <template>
-  <div class="full-height">
+  <div v-if="index" class="full-height">
     <aside>
       <div class="content-width">
         <CreateSignatureForm />
@@ -21,6 +21,9 @@
       </ClientOnly>
     </div>
   </div>
+  <div v-else class="full-height loading">
+    <Loader />
+  </div>
 </template>
 
 <script setup>
@@ -28,8 +31,10 @@ const config = useRuntimeConfig()
 const router = useRouter()
 const route = useRoute()
 
+const index = computed(() => route.path === '/')
+
 // Handle redirect
-if (route.path != '/') {
+if (! index.value) {
   try {
     const signature = await $fetch(`${config.public.api}/v1/signatures/${route.params.slug}`)
 
@@ -66,5 +71,17 @@ aside {
   padding: var(--size-9) 0 calc(var(--size-9)*2);
   display: grid;
   gap: var(--padding);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    width: var(--size-8);
+    height: var(--size-8);
+    margin-bottom: var(--size-8);
+  }
 }
 </style>
