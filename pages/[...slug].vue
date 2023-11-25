@@ -25,6 +25,29 @@
 
 <script setup>
 const config = useRuntimeConfig()
+const router = useRouter()
+const route = useRoute()
+
+// Handle redirect
+if (route.path != '/') {
+  try {
+    const signature = await $fetch(`${config.public.api}/v1/signatures/${route.params.slug}`)
+
+    router.replace({
+      path: '/verify',
+      query: {
+        subjects: signature.subjects.join(','),
+        action: signature.action,
+        object: signature.object,
+        signer: signature.signer,
+        signature: signature.signature,
+      }
+    })
+  } catch (e) {
+    console.error(e)
+    router.replace('/')
+  }
+}
 
 const url = `${config.public.api}/v1/signatures`
 

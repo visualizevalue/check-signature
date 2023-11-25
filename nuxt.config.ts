@@ -39,10 +39,15 @@ export default defineNuxtConfig({
       chainId: '1',
     },
   },
-  generate: {
-    routes: [
-      '/id',
-    ],
+  // generate: {
+  //   routes: [
+  //     '/*',
+  //   ],
+  // },
+  routeRules: {
+    '/': { prerender: true },
+    '/verify': { prerender: true },
+    '/**': { prerender: false, ssr: false },
   },
   css: [
     '~/styles/index.css',
