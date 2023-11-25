@@ -31,7 +31,7 @@ useMetaData({
 
 <style lang="postcss" scoped>
 aside {
-  padding: 0 var(--padding);
+  padding: 0 var(--padding) var(--size-8);
   opacity: 0.33;
   transition: all var(--speed);
 

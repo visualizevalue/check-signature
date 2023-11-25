@@ -30,8 +30,10 @@ main {
       position: fixed;
       background: linear-gradient(to top, var(--opaque-black), var(--transparent-black));
       bottom: 0;
+      left: 0;
       width: 100vw;
       height: min(10vh, 10vw);
+      pointer-events: none;
     }
   }
 

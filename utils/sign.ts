@@ -1,6 +1,14 @@
 import { signTypedData, type SignTypedDataArgs } from '@wagmi/core'
 import isValidURI from '~/utils/is-valid-uri'
 
+export type Signature = {
+  signer: string,
+  signature: string,
+  subjects: string[],
+  action: string,
+  object: string,
+}
+
 export const OPTIONS = {
   SAID: 'said',
   WROTE: 'wrote',

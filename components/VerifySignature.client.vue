@@ -1,6 +1,21 @@
 <template>
   <div class="verify" :class="[`valid-${valid}`]">
 
+    <header class="status">
+      <span v-if="isPrivate">
+        <Icon type="eye-off" />
+        <span>Private signature</span>
+      </span>
+      <span v-else-if="loaded">
+        <Icon type="eye" />
+        <span>Public signature</span>
+      </span>
+      <span v-if="copied">Link copied to clipboard</span>
+      <Button @click="share" title="Copy URI" class="small">
+        <Icon type="share" />
+      </Button>
+    </header>
+
     <section class="statement">
       <header>
         <Account :address="signer" class="signer" />
@@ -80,10 +95,13 @@
 
 <script setup>
 import { verifyTypedData } from 'viem'
+import ipfs from '~/utils/ipfs'
+
+const config = useRuntimeConfig()
 
 const {
-  signature,
   signer,
+  signature,
   subjects,
   action,
   object,
@@ -115,9 +133,66 @@ const verify = async () => {
 
 // Verify on load
 verify()
+
+const cid = ref(null)
+const stored = ref(null)
+const loaded = ref(false)
+const isPrivate = computed(() => loaded.value && !stored.value)
+onMounted(async () => {
+  try {
+    cid.value = await ipfs.addSignature({ signer, signature, subjects, action, object })
+    stored.value = await $fetch(`${config.public.api}/v1/signatures/${cid.value}`)
+  } catch (e) {
+    //
+  }
+
+  loaded.value = true
+})
+
+const copied = ref(false)
+const share = async () => {
+  const url = isPrivate.value ? location.href : `https://s.vv.xyz/${stored.value.id}`
+
+  if ('share' in navigator) {
+    return await navigator.share({
+      title: `Signature Check`,
+      url,
+    })
+  }
+
+  try {
+    await navigator.clipboard.writeText(url)
+    copied.value = true
+
+    setTimeout(() => copied.value = false, 3_000)
+  } catch (e) {
+    console.error(e)
+  }
+}
 </script>
 
 <style lang="postcss" scoped>
+.status {
+  display: flex;
+  gap: var(--padding);
+  align-items: center;
+  justify-content: flex-end;
+
+  > * {
+    display: flex;
+    gap: var(--size-2);
+    align-items: center;
+    color: var(--gray-z-7);
+    font-size: var(--font-sm);
+
+    .icon {
+      width: var(--size-3);
+      height: var(--size-3);
+      color: var(--gray-z-6);
+    }
+  }
+}
+
 .verify {
   display: flex;
   flex-direction: column;
@@ -241,11 +316,6 @@ p {
 }
 
 .valid-true {
-  .statement,
-  .proof {
-    /* box-shadow: 0 0 0 var(--size-1) rgba(var(--green-rgb), 0.1); */
-  }
-
   .validity {
     color: var(--green);
   }
@@ -255,11 +325,6 @@ p {
   }
 }
 .valid-false {
-  .statement,
-  .proof {
-    /* box-shadow: 0 0 0 var(--size-1) rgba(var(--red-rgb), 0.1); */
-  }
-
   .validity,
   .signature {
     color: var(--red);

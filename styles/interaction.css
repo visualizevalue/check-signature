@@ -33,7 +33,16 @@
         var(--primary);
       color: var(--gray-z-6);
     }
+  }
 
+  &.small {
+    padding: var(--size-2) var(--size-3);
+    font-size: var(--font-sm);
+
+    .icon {
+      width: var(--size-3);
+      height: var(--size-3);
+    }
   }
 }
 
