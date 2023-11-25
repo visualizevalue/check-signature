@@ -39,6 +39,11 @@ export default defineNuxtConfig({
       chainId: '1',
     },
   },
+  generate: {
+    routes: [
+      '/id',
+    ],
+  },
   css: [
     '~/styles/index.css',
   ],
