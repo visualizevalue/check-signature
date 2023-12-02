@@ -184,6 +184,7 @@ const share = async () => {
     align-items: center;
     color: var(--gray-z-7);
     font-size: var(--font-sm);
+    white-space: nowrap;
 
     .icon {
       width: var(--size-3);
