@@ -29,9 +29,9 @@
       </header>
 
       <div class="body">
-        <span v-if="signerIsSubject && singularSubject" class="subject">"I</span>
+        <span v-if="signerIsSubject && singularSubject" class="subject">I</span>
         <span v-else class="subject">
-          "<Account
+          <Account
             v-for="address in subjects"
             :key="address"
             :address="address"
@@ -40,7 +40,7 @@
 
         <span class="action">{{ action }}</span>
 
-        <span class="object"><SignatureObject :object="object" />"</span>
+        <span class="object"><SignatureObject :object="object" /></span>
       </div>
     </section>
 
@@ -238,6 +238,7 @@ const share = async () => {
     flex-wrap: wrap;
     align-items: baseline;
     gap: var(--size-3);
+    row-gap: 0;
     font-size: var(--font-lg);
     padding-top: var(--padding);
     border-top: var(--border-dark);
@@ -245,7 +246,12 @@ const share = async () => {
     -webkit-overflow-scrolling: auto;
 
     > * {
-      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    :deep(.uri) {
+      max-width: 100%;
+      overflow: hidden;
     }
   }
 }
