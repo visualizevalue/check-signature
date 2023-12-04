@@ -10,13 +10,23 @@ export type Signature = {
 }
 
 export const OPTIONS = {
-  SAID: 'said',
-  WROTE: 'wrote',
-  MADE: 'made',
-  BOUGHT: 'bought',
-  APPROVE: 'approve',
-  DISAPPROVE: 'disapprove',
+  said: 'said',
+  wrote: 'wrote',
+  made: 'made',
+  bought: 'bought',
+  approve: 'approve',
+  disapprove: 'disapprove',
 }
+export const OPTIONS_GRAMMAR = {
+  // KEY            I              HE/SHE          WE/THEY
+  said:           [ 'said',        'said',         'said'          ],
+  wrote:          [ 'wrote',       'wrote',        'wrote'         ],
+  made:           [ 'made',        'made',         'made'          ],
+  bought:         [ 'bought',      'bought',       'bought'        ],
+  approve:        [ 'approve',     'approves',     'approve'       ],
+  disapprove:     [ 'disapprove',  'disapproves',  'disapprove'    ],
+}
+
 export const TYPES = {
   URI: 'URI',
   TXT: 'TXT',

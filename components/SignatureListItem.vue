@@ -2,7 +2,7 @@
   <article :class="[`theme-${signature.action}`]">
     <Icon type="check" class="check" />
     <Address :address="signature.signer" />
-    <span>{{ signature.action }}</span>
+    <span>{{ action }}</span>
     <SignatureObject :object="signature.object" minimal class="object" />
     <TimeAgo v-if="signature.created_at" :timestamp="signature.created_at" class="time" />
     <NuxtLink :to="link" class="link"><span>View Signature</span></NuxtLink>
@@ -10,9 +10,13 @@
 </template>
 
 <script setup>
+import { OPTIONS_GRAMMAR } from '~/utils/sign'
+
 const { signature } = defineProps({
   signature: Object,
 })
+
+const action = computed(() => OPTIONS_GRAMMAR[signature.action][1])
 
 const link = computed(() => ({
   path: '/verify',
