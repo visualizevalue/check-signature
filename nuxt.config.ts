@@ -3,6 +3,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      title: 'Signature Check',
       htmlAttrs: {
         lang: 'en',
       },
@@ -14,7 +15,12 @@ export default defineNuxtConfig({
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0'
-        }
+        },
+        { name: 'title', content: 'Signature Check' },
+        { name: 'description', content: 'Create and verify statements created with Ethereum Accounts.' },
+        { property: 'og:title', content: 'Signature Check' },
+        { property: 'og:description', content: 'Create and verify statements created with Ethereum Accounts.' },
+        { property: 'og:image', content: 'https://signature.vv.xyz/OG.png' },
       ],
       link: [
         {
