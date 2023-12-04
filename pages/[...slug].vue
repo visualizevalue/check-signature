@@ -8,15 +8,17 @@
 
     <div class="content-width">
       <ClientOnly>
-        <PaginatedContent :url="url"
-          v-slot="{ items }"
-          class="timeline"
-        >
-          <SignatureListItem
-            v-for="signature in items"
-            :key="signature.cid"
-            :signature="signature"
-          />
+        <PaginatedContent :url="url" class="timeline">
+          <template v-slot="{ items }">
+            <SignatureListItem
+              v-for="signature in items"
+              :key="signature.cid"
+              :signature="signature"
+            />
+          </template>
+          <template #loading>
+            <Loader />
+          </template>
         </PaginatedContent>
       </ClientOnly>
     </div>
@@ -73,15 +75,17 @@ aside {
   gap: var(--padding);
 }
 
-.loading {
+.loading,
+:deep(.loading) {
   display: flex;
   justify-content: center;
   align-items: center;
 
   .icon {
-    width: var(--size-8);
-    height: var(--size-8);
-    margin-bottom: var(--size-8);
+    width: var(--size-6);
+    height: var(--size-6);
+    margin-top: var(--size-4);
+    margin-bottom: var(--size-6);
   }
 }
 </style>
