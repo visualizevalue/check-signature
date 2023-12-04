@@ -151,7 +151,7 @@ onMounted(async () => {
 
 const copied = ref(false)
 const share = async () => {
-  const url = isPrivate.value ? location.href : `https://s.vv.xyz/${stored.value.id}`
+  const url = isPrivate.value ? location.href : `https://${config.public.shortUri}/${stored.value.id}`
 
   if ('share' in navigator) {
     return await navigator.share({

@@ -37,13 +37,10 @@ export default defineNuxtConfig({
       walletConnectProjectId: '',
       chainName: 'mainnet',
       chainId: '1',
+      shortUri: 's.vv.xyz',
+      appUri: 'signature.vv.xyz',
     },
   },
-  // generate: {
-  //   routes: [
-  //     '/*',
-  //   ],
-  // },
   routeRules: {
     '/': { prerender: true },
     '/verify': { prerender: true },
