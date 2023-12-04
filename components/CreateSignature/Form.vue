@@ -33,7 +33,7 @@
 <script setup>
 import { OPTIONS, getType, isURI } from '~/utils/sign'
 
-const action = ref(OPTIONS.SAID)
+const action = ref(OPTIONS.said)
 const object = ref('')
 const type = computed(() => getType(object.value))
 const peers = ref([])
