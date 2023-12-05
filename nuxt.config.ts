@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Create and verify statements created with Ethereum Accounts.' },
         { property: 'og:title', content: 'Signature Check' },
         { property: 'og:description', content: 'Create and verify statements created with Ethereum Accounts.' },
-        { property: 'og:image', content: 'https://signature.vv.xyz/OG-handwritten.png' },
+        { property: 'og:image', content: 'https://signature.vv.xyz/OG.png' },
       ],
       link: [
         {
