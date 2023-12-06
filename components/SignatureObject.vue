@@ -70,6 +70,7 @@ const gatewayURI = computed(() => `${gateway.value}/${protocol.value}/${path.val
   .search,
   .hash {
     color: var(--gray-z-6);
+    white-space: nowrap;
   }
 
   .path,
