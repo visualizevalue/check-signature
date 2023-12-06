@@ -28,6 +28,10 @@ export default defineNuxtConfig({
       ],
       link: [
         {
+          rel: 'manifest',
+          href: '/manifest.webmanifest',
+        },
+        {
           href: '/favicon.png',
           rel: 'shortcut icon',
           type: 'image/png',
@@ -43,7 +47,7 @@ export default defineNuxtConfig({
         },
         {
           rel: 'mask-icon',
-          href: '/vv.svg',
+          href: '/signature.svg',
           color: '#000000',
         },
       ],
@@ -59,6 +63,7 @@ export default defineNuxtConfig({
       short_name: 'Sign',
       description: 'Create and verify statements created with Ethereum Accounts.',
       theme_color: '#000000',
+      background_color: '#000000',
       icons: [
         {
           src: 'pwa-64x64.png',
@@ -96,11 +101,6 @@ export default defineNuxtConfig({
       shortUri: 's.vv.xyz',
       appUri: 'signature.vv.xyz',
     },
-  },
-  routeRules: {
-    '/': { prerender: true },
-    '/verify': { prerender: true },
-    '/**': { prerender: false, ssr: false },
   },
   css: [
     '~/styles/index.css',
