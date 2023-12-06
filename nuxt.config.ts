@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  modules: [
+    '@vite-pwa/nuxt',
+  ],
   app: {
     head: {
       title: 'Signature Check',
@@ -21,6 +24,7 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'Signature Check' },
         { property: 'og:description', content: 'Create and verify statements created with Ethereum Accounts.' },
         { property: 'og:image', content: 'https://signature.vv.xyz/OG.png' },
+        { name: 'theme-color', content: '#000000' },
       ],
       link: [
         {
@@ -31,6 +35,16 @@ export default defineNuxtConfig({
         {
           href: '/favicon.png',
           rel: 'apple-touch-icon',
+        },
+        {
+          rel: 'apple-touch-icon',
+          href: '/apple-touch-icon-512x512.png',
+          sizes: '512x512',
+        },
+        {
+          rel: 'mask-icon',
+          href: '/vv.svg',
+          color: '#000000',
         },
       ],
     }

@@ -7,10 +7,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/signature.svg"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@vite-pwa/assets-generator": "^0.0.11",
+    "@vite-pwa/nuxt": "^0.3.3",
     "nuxt": "^3.8.2",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
@@ -27,6 +30,7 @@
     "helia": "^2.1.0",
     "luxon": "^3.4.4",
     "postcss-preset-env": "^9.1.4",
+    "sharp": "^0.33.0",
     "viem": "^1.11.0",
     "vue-feather": "2"
   }
