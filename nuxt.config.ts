@@ -90,6 +90,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  routeRules: {
+    '/': { prerender: true },
+    '/verify': { prerender: true },
+    '/**': { prerender: false, ssr: false },
+  },
   runtimeConfig: {
     public: {
       api: '',
