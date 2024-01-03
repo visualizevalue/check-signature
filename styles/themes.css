@@ -3,5 +3,6 @@
 .theme-wrote         {    --primary: var(--color-wrote);        }
 .theme-made          {    --primary: var(--color-made);         }
 .theme-bought        {    --primary: var(--color-bought);       }
+.theme-sign          {    --primary: var(--color-sign);         }
 .theme-approve       {    --primary: var(--color-approve);      }
 .theme-disapprove    {    --primary: var(--color-disapprove);   }

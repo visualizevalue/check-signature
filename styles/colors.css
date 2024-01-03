@@ -94,6 +94,7 @@
   --color-wrote: var(--color-78);
   --color-made: var(--color-1);
   --color-bought: var(--color-48);
+  --color-sign: var(--color-72);
   --color-approve: var(--color-46);
   --color-disapprove: var(--color-34);
 }

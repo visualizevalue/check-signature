@@ -14,11 +14,14 @@ export const OPTIONS = {
   wrote: 'wrote',
   made: 'made',
   bought: 'bought',
+
+  sign: 'sign',
   approve: 'approve',
   disapprove: 'disapprove',
 }
 export const OPTIONS_GRAMMAR = {
   // KEY            I              HE/SHE          WE/THEY
+  sign:           [ 'sign',        'signs',        'sign'          ],
   said:           [ 'said',        'said',         'said'          ],
   wrote:          [ 'wrote',       'wrote',        'wrote'         ],
   made:           [ 'made',        'made',         'made'          ],
