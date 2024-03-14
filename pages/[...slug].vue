@@ -8,7 +8,7 @@
 
     <div class="content-width">
       <ClientOnly>
-        <PaginatedContent :url="url" class="timeline">
+        <PaginatedContent :url="url" :query="query" class="timeline">
           <template v-slot="{ items }">
             <SignatureListItem
               v-for="signature in items"
@@ -57,6 +57,7 @@ if (! index.value) {
 }
 
 const url = `${config.public.api}/v1/signatures`
+const query = (new URLSearchParams({ 'filters[schema]': `1` })).toString()
 
 useMetaData({
   title: 'Signature Check',
