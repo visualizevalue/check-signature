@@ -29,9 +29,11 @@
     "feather-icons": "4",
     "helia": "^2.1.0",
     "luxon": "^3.4.4",
+    "p5": "^1.11.0",
     "postcss-preset-env": "^9.1.4",
     "sharp": "^0.33.0",
     "viem": "^1.11.0",
     "vue-feather": "2"
-  }
+  },
+  "packageManager": "npm@10.7.0"
 }
