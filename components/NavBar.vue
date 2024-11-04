@@ -32,7 +32,7 @@ nav {
   }
 
   .check {
-    color: var(--gray-z-3 );
+    color: var(--gray-z-3);
     flex-shrink: 0;
     flex-grow: 0;
   }
