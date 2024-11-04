@@ -38,31 +38,52 @@ export const TYPES = {
 export const getType = (content: string) => isValidURI(content.trim()) ? TYPES.URI : TYPES.TXT
 export const isURI = (type: keyof typeof TYPES) => type === TYPES.URI
 
-export const notabilityCheck712Definition = (subject: string[], action: string, object: string): SignTypedDataArgs => {
-  const name = 'Notability Check'
-  const domain = {
-    name,
-    version: '1',
+type TypeDefinition = {
+  name: string,
+  type: string,
+}
+
+export const generateDefinition = (
+  name: string,
+  version: string,
+  type: TypeDefinition[],
+  otherTypes?: { [key: string]: TypeDefinition[] }
+) => {
+  const types = {
+    [name]: type,
+    ...otherTypes,
   }
 
-  const types = {
-    [name]: [
+  return {
+    domain: {
+      name,
+      version,
+    },
+    message: null,
+    primaryType: name,
+    types,
+  }
+}
+
+export const notabilityCheck712Definition = (subject: string[], action: string, object: string): SignTypedDataArgs => {
+  const definition = generateDefinition(
+    'Notability Check',
+    '1',
+    [
       { name: 'Subject', type: 'address[]' },
       { name: 'Action', type: 'string' },
       { name: 'Object', type: 'string' },
     ],
-  }
+  )
 
   return {
-    primaryType: name,
+    ...definition,
     message: {
       Subject: subject,
       Action: action,
       Object: object,
     },
-    domain,
-    types,
-  }
+  } as unknown as SignTypedDataArgs
 }
 
 export const signNotabilityCheck = async (subject: string[], action: string, object: string) =>

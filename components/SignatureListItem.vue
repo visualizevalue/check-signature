@@ -16,7 +16,7 @@ const { signature } = defineProps({
   signature: Object,
 })
 
-const action = computed(() => OPTIONS_GRAMMAR[signature.action][1])
+const action = computed(() => OPTIONS_GRAMMAR[signature.action] ? OPTIONS_GRAMMAR[signature.action][1] : signature.action)
 
 const link = computed(() => ({
   path: '/verify',

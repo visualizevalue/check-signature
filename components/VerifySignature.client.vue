@@ -116,8 +116,10 @@ const {
 const signerIsSubject = computed(() => subjects.includes(signer))
 const singularSubject = computed(() => subjects.length === 1)
 
-const signedDataArgs = computed(() => notabilityCheck712Definition(subjects, action, object))
+const signedDataArgs = computed(() => generateDefinition(subjects, action, object))
 const valid = ref(null)
+
+// TODO: Implement dynamic schema getter...
 
 const verify = async () => {
   try {
