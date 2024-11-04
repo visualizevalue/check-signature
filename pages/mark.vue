@@ -2,7 +2,7 @@
   <div class="sign-mark full-height">
     <DrawSignature ref="sign" />
 
-    <Button @click="clear" class="clear small" title="Clear">
+    <Button v-if="sign.hasPoints" @click="clear" class="clear small" title="Clear">
       <Icon type="trash" />
     </Button>
 

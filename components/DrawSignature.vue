@@ -8,6 +8,7 @@ import p5 from 'p5'
 
 const container = ref(null)
 const svgOutput = ref('')
+const hasPoints = ref(false)
 
 let p5Instance = null
 let points = []
@@ -38,6 +39,7 @@ const sketch = (p) => {
     const sufficientTimeElapsed = p.millis() - lastSampleTime > SAMPLE_INTERVAL
 
     if (isDrawing && (sufficientDistance || sufficientTimeElapsed)) {
+      hasPoints.value = true
       currentStroke.push({ x: p.mouseX, y: p.mouseY })
       lastSampleTime = p.millis()
 
@@ -109,6 +111,7 @@ const clearCanvas = () => {
     points = []
     currentStroke = []
     svgOutput.value = ''
+    hasPoints.value = false
   }
 }
 
@@ -163,6 +166,7 @@ onUnmounted(() => {
 defineExpose({
   clear: clearCanvas,
   export: exportPath,
+  hasPoints,
 })
 </script>
 
