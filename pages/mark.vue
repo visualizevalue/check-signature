@@ -18,6 +18,7 @@ useMetaData({
 <style scoped>
 .full-height {
   padding: var(--padding-lg) 0 var(--size-9);
+  padding: var(--padding-lg) var(--padding) var(--size-9);
 }
 
 hr {

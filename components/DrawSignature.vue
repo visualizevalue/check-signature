@@ -1,5 +1,7 @@
 <template>
-  <div ref="container" class="sign"></div>
+  <div class="sign">
+    <div ref="container"></div>
+  </div>
 </template>
 
 <script setup>
@@ -175,10 +177,22 @@ defineExpose({
 
 <style scoped>
 .sign {
-  :deep(canvas) {
+  border: var(--border-dark);
+  height: 512px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
     width: 100%;
-    max-width: 100vw !important;
-    border: var(--border-dark);
+    overflow: hidden;
+    height: 510px;
+    width: 510px;
+    max-width: calc(100% - 2px);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
