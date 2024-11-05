@@ -37,6 +37,21 @@
         </template>
       </TransactionFlow>
     </div>
+
+    <hr>
+
+    <aside class="prose small">
+      <h1>
+        <span>How this works</span>
+        <Icon type="chevron-right" />
+      </h1>
+      <p>This stores your signature in the
+        <NuxtLink
+          to="https://etherscan.io/address/0xDE04A2537f84C8176f1B3F624405419a1E28C3F0"
+        >"SignatureRepository" smart contract</NuxtLink> on Etheruem.</p>
+      <p>Note, there is no way to delete these signatures from the blockchain. They are public andwill stay live forever.</p>
+      <p>No tokens are minted in the process of inscribing signatures.</p>
+    </aside>
   </div>
 </template>
 
@@ -90,5 +105,15 @@ const inscribe = async () => {
   display: flex;
   justify-content: flex-end;
   gap: var(--size-4);
+}
+
+hr {
+  margin: calc(var(--padding-lg) - var(--size-4)) 0;
+}
+
+.prose {
+  h1 {
+    margin: 0 0 1em;
+  }
 }
 </style>

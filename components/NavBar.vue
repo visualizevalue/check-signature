@@ -9,12 +9,12 @@
     </div>
   </nav>
 
-  <!-- <nav> -->
-  <!--   <menu class="full-width"> -->
-  <!--     <NuxtLink :to="{ path: '/' }"><span>Cryptographic</span> <span> Mark</span></NuxtLink> -->
-  <!--     <NuxtLink :to="{ path: '/mark' }"><span>Handwritten</span> <span> Mark</span></NuxtLink> -->
-  <!--   </menu> -->
-  <!-- </nav> -->
+  <nav>
+    <menu class="full-width">
+      <NuxtLink :to="{ path: '/' }"><span>Cryptographic</span> <span> Mark</span></NuxtLink>
+      <NuxtLink :to="{ path: '/mark' }"><span>Handwritten</span> <span> Mark</span></NuxtLink>
+    </menu>
+  </nav>
 </template>
 
 <script setup>

@@ -1,6 +1,10 @@
 <template>
   <div class="full-height">
     <StoreSignature />
+
+    <hr>
+
+    <HandwrittenMarks />
   </div>
 </template>
 
@@ -13,14 +17,10 @@ useMetaData({
 
 <style scoped>
 .full-height {
-  max-width: 512px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: var(--padding-lg) 0;
+  padding: var(--padding-lg) 0 var(--size-9);
 }
 
-h1 {
-  font-size: var(--font-lg);
-  margin: 0 0 var(--padding-lg) 0;
+hr {
+  margin: var(--padding-lg) 0;
 }
 </style>
