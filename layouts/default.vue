@@ -6,7 +6,7 @@
   </main>
 </template>
 
-<style lang="postcss" scoped>
+<style scoped>
 main {
   width: 100%;
   min-height: 100dvh;

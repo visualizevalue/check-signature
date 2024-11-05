@@ -1,17 +1,6 @@
 <template>
-  <div class="sign-mark full-height">
-    <DrawSignature ref="sign" />
-
-    <Button v-if="sign.hasPoints" @click="clear" class="clear small" title="Clear">
-      <Icon type="trash" />
-    </Button>
-
-    <div class="actions">
-      <Button @click="inscribe">
-        <Icon type="feather" />
-        <span>Inscribe</span>
-      </Button>
-    </div>
+  <div class="full-height">
+    <StoreSignature />
   </div>
 </template>
 
@@ -20,40 +9,18 @@ useMetaData({
   title: 'Handwritten Mark',
   description: 'Store your handwritten signature onchain',
 })
-
-const sign = ref()
-
-const clear = () => {
-  sign.value.clear()
-}
-const inscribe = () => {
-  const svg = sign.value.export()
-
-  alert(svg)
-}
 </script>
 
 <style scoped>
-.sign-mark {
-  padding-top: var(--size-5);
-  padding-bottom: var(--size-5);
-  display: grid;
-  gap: var(--size-4);
-  grid-auto-rows: min-content;
+.full-height {
   max-width: 512px;
-  position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--padding-lg) 0;
 }
 
-.clear {
-  position: absolute;
-  top: calc(var(--size-5) + var(--size-4));
-  right: var(--size-4);
-}
-
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--size-4);
+h1 {
+  font-size: var(--font-lg);
+  margin: 0 0 var(--padding-lg) 0;
 }
 </style>

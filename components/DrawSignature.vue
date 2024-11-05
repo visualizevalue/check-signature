@@ -6,6 +6,9 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import p5 from 'p5'
 
+const UNDERLINE_WIDTH = 2
+const PEN_WIDTH = 4
+
 const container = ref(null)
 const svgOutput = ref('')
 const hasPoints = ref(false)
@@ -20,10 +23,11 @@ const SAMPLE_INTERVAL = 20; // Minimum time between points in ms
 const sketch = (p) => {
   p.reset = () => {
     p.background(0)
-    p.strokeWeight(2)
+    p.strokeWeight(UNDERLINE_WIDTH)
     p.stroke(28)
     p.line(80, 280, 432, 280)
     p.stroke(255)
+    p.strokeWeight(PEN_WIDTH)
     p.noFill()
   }
 
@@ -46,8 +50,10 @@ const sketch = (p) => {
       // Redraw everything
       p.background(0)
       p.stroke(28)
+      p.strokeWeight(UNDERLINE_WIDTH)
       p.line(80, 280, 432, 280)
       p.stroke(255)
+      p.strokeWeight(PEN_WIDTH)
 
       // Draw completed strokes
       points.forEach(stroke => {
@@ -103,10 +109,7 @@ const isMouseOverCanvas = (p) => {
 
 const clearCanvas = () => {
   if (p5Instance) {
-    p5Instance.background(0)
-    p5Instance.stroke(28)
-    p5Instance.line(80, 280, 432, 280)
-    p5Instance.stroke(255)
+    p5Instance.reset()
 
     points = []
     currentStroke = []
