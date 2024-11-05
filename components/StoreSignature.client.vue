@@ -35,6 +35,12 @@
           </Button>
           <Connect v-else />
         </template>
+
+        <template v-slot:complete="{ close }">
+          <div class="actions">
+            <Button @click="() => close()">Ok</Button>
+          </div>
+        </template>
       </TransactionFlow>
     </div>
 
