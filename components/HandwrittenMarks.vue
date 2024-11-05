@@ -34,5 +34,9 @@ useIntervalFn(() => refresh(), 60_000)
   overflow: hidden;
   position: relative;
   height: 100%;
+
+  :deep(svg) {
+    width: 100%;
+  }
 }
 </style>
