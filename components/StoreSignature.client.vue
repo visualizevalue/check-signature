@@ -80,8 +80,6 @@ const inscribe = async () => {
   const { hash } = await writeContract({
     address: `0xDE04A2537f84C8176f1B3F624405419a1E28C3F0`,
     chain: 1,
-    // address: `0xf0cb6e8FfcF2539f8a909bDB296b7D0B3887A3AD`,
-    // chain: 17000,
     abi: SIGNATURE_REPOSITORY_ABI,
     functionName: `addSignature`,
     args: [[toHex(new TextEncoder().encode(minified))]]
