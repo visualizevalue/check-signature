@@ -96,7 +96,6 @@ const inscribe = async () => {
   display: grid;
   gap: var(--size-4);
   grid-auto-rows: min-content;
-  overflow: hidden;
   width: 100%;
   max-width: 512px;
   position: relative;
