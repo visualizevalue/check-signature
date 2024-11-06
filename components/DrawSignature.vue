@@ -36,6 +36,8 @@ const sketch = (p) => {
   p.setup = () => {
     p.createCanvas(512, 512)
 
+    // Prevent scrolling on touch devices
+    p.canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false })
     p.reset()
   }
 
@@ -86,6 +88,10 @@ const sketch = (p) => {
       currentStroke = []
     }
   }
+
+  // Add touch handlers that mirror mouse handlers
+  p.touchStarted = p.mousePressed
+  p.touchEnded = p.mouseReleased
 }
 
 const drawCurvedLine = (p, points) => {
@@ -112,7 +118,6 @@ const isMouseOverCanvas = (p) => {
 const clearCanvas = () => {
   if (p5Instance) {
     p5Instance.reset()
-
     points = []
     currentStroke = []
     svgOutput.value = ''
@@ -196,4 +201,3 @@ defineExpose({
   }
 }
 </style>
-
