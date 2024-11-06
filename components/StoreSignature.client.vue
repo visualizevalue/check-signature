@@ -54,7 +54,7 @@
       <p>This stores your signature in the
         <NuxtLink
           to="https://etherscan.io/address/0xDE04A2537f84C8176f1B3F624405419a1E28C3F0"
-        >"SignatureRepository" smart contract</NuxtLink> on Etheruem.</p>
+        >"SignatureRepository" smart contract</NuxtLink> on Ethereum.</p>
       <p>Note, there is no way to delete these signatures from the blockchain. They are public andwill stay live forever.</p>
       <p>No tokens are minted in the process of inscribing signatures.</p>
     </aside>
