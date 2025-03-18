@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   modules: [
     '@vite-pwa/nuxt',
   ],
+  extends: [
+    '@visualizevalue/vveb3-layer',
+  ],
   app: {
     head: {
       title: 'Signature Check',
@@ -110,14 +113,4 @@ export default defineNuxtConfig({
   css: [
     '~/styles/index.css',
   ],
-  $development: {
-    extends: [
-      import.meta.env.NUXT_VVEB3_LINK,
-    ],
-  },
-  $production: {
-    extends: [
-      'github:visualizevalue-dev/vveb3-layer',
-    ],
-  },
 })

@@ -11,18 +11,15 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/signature.svg"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@vite-pwa/assets-generator": "^0.0.11",
-    "@vite-pwa/nuxt": "^0.3.4",
-    "nuxt": "^3.8.2",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "@vite-pwa/nuxt": "^0.3.6",
+    "nuxt": "^3.16.0"
   },
   "dependencies": {
     "@csstools/postcss-global-data": "^2.1.0",
     "@helia/json": "^1.0.3",
-    "@vueuse/components": "^10.6.1",
-    "@vueuse/core": "^10.4.1",
+    "@visualizevalue/vveb3-layer": "^0.0.3",
+    "@vueuse/components": "^10.11.1",
+    "@vueuse/core": "^10.11.1",
     "@wagmi/chains": "^1.8.0",
     "@wagmi/core": "^1.4.2",
     "buffer": "^6.0.3",
@@ -35,5 +32,5 @@
     "viem": "^1.11.0",
     "vue-feather": "2"
   },
-  "packageManager": "npm@10.7.0"
+  "packageManager": "pnpm@10.6.4+sha512.da3d715bfd22a9a105e6e8088cfc7826699332ded60c423b14ec613a185f1602206702ff0fe4c438cb15c979081ce4cb02568e364b15174503a63c7a8e2a5f6c"
 }
