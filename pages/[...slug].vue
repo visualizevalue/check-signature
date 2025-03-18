@@ -9,7 +9,7 @@
     <div class="content-width">
       <ClientOnly>
         <PaginatedContent :url="url" :query="query" class="timeline">
-          <template v-slot="{ items }">
+          <template v-if="items" v-slot="{ items }">
             <SignatureListItem
               v-for="signature in items"
               :key="signature.cid"

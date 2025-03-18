@@ -47,6 +47,7 @@
 </template>
 
 <script setup>
+import { useAccount } from '@wagmi/vue'
 import { signNotabilityCheck } from '~/utils/sign'
 
 const props = defineProps({

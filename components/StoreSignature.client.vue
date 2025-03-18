@@ -62,6 +62,7 @@
 </template>
 
 <script setup>
+import { useAccount } from '@wagmi/vue'
 import { toHex } from 'viem/utils'
 import { writeContract } from '@wagmi/core'
 
